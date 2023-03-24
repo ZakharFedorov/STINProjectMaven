@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank User Page</title>
+</head>
+<body>
+    <main id="main-holder">
+        <h1 id="bank-header">Bank</h1>
+        <div id="bank-user-info-holder">
+            <p id="bank-user-info">Welcome, <span id="bank-user-info-name">John Doe</span></p>
+        </div>
+        <p id="bank-form-logout-link"><a href="/static">Logout</a></p>
+        <div id="bank-user-balance-holder">
+            <p id="bank-user-crown-balance">Your crown balance is: <span id="bank-user-crown-balance-amount">0.00Kč</span></p>
+            <p id="bank-user-dollar-balance">Your dollar balance is: <span id="bank-user-dollar-balance-amount">$0.00</span></p>
+            <p id="bank-user-euro-balance">Your euro balance is: <span id="bank-user-euro-balance-amount">€0.00</span></p>
+        </div>
+        <div id="bank-current-exchange-rate-holder">
+            <p id="bank-current-exchange-rate">Current exchange rate:</p>
+            <p id="bank-current-exchange-rate-dollar-crown">$1 = 22.76Kč</p>
+            <p id="bank-current-exchange-rate-euro-crown">€1 = 23.95Kč</p>
+        </div>
+        <form id="bank-form">
+            <input type="number" name="amount" id="amount-field" class="bank-form-field" placeholder="Amount">
+            <select name="currency" id="currency-field" class="bank-form-field">
+                <option value="crown">Crown</option>
+                <option value="dollar">Dollar</option>
+                <option value="euro">Euro</option>
+            </select>
+            <select name="action" id="action-field" class="bank-form-field">
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+            </select>
+            <input type="submit" value="Submit" id="bank-form-submit">
+        </form>
+        <div id="bank-form-error-msg-holder">
+            <p id="bank-form-error-msg">Invalid amount</p>
+        </div>
+    </main>
+</body>
+</html>
