@@ -9,7 +9,7 @@ workflow_dispatch:
 #Trigger the workflow on push from the main branch
 push:
 branches:
-  - main
+  - backend
 jobs:
 
 #Test's job
