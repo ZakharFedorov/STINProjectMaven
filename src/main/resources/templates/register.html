@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,15 +9,15 @@
 <body>
     <main id="main-holder">
         <h1 id="signup-header">Sign up</h1>
-        <form id="signup-form">
-            <input type="text" name="username" id="username-field" class="signup-form-field" placeholder="User Name">
-            <input type="text" name="usersurname" id="usersurname-field" class="signup-form-field" placeholder="User Surname">
-            <input type="text" name="e-mail" id="e-mail-field" class="signup-form-field" placeholder="E-mail">
+        <form id="signup-form" method="post" action="/signup" th:object="${registerRequest}">
+            <input type="text" name="first_name" id="first_name-field" class="signup-form-field" placeholder="User Name">
+            <input type="text" name="last_name" id="last_name-field" class="signup-form-field" placeholder="User Surname">
+            <input type="text" name="email" id="e-mail-field" class="signup-form-field" placeholder="E-mail">
             <input type="password" name="password" id="password-field" class="signup-form-field" placeholder="Password">
             <input type="password" name="confirm-password" id="confirm-password-field" class="signup-form-field" placeholder="Confirm password">
             <input type="submit" value="Sign up" id="signup-form-submit">
         </form>
-        <p id="signup-form-login-link">Already have an account? <a href="/static">Login</a></p>
+        <p id="signup-form-login-link">Already have an account? <a href="/">Login</a></p>
     </main>
     
 </body>
