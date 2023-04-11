@@ -3,9 +3,12 @@ package com.stin.stinprojectmaven.backend.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 public class UserCustom implements UserDetails {
@@ -21,11 +24,11 @@ public class UserCustom implements UserDetails {
     }
     @Override
     public String getPassword() {
-        return null;
+        return user.getPassword();
     }
     @Override
     public String getUsername() {
-        return null;
+        return user.getEmail();
     }
     @Override
     public boolean isAccountNonExpired() {
@@ -33,7 +36,7 @@ public class UserCustom implements UserDetails {
     }
     @Override
     public boolean isAccountNonLocked() {
-        return !user.getLocked();
+        return true;
     }
     @Override
     public boolean isCredentialsNonExpired() {
@@ -41,6 +44,6 @@ public class UserCustom implements UserDetails {
     }
     @Override
     public boolean isEnabled() {
-        return user.getEnabled();
+        return true;
     }
 }

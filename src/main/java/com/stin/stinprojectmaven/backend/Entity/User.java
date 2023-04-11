@@ -5,33 +5,26 @@ import lombok.*;
 
 @Data
 @Entity
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
-
-
-@Table(name = "User")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String first_name;
     private String last_name;
     private String email;
     private String password;
-    private Integer code;
-    private Boolean locked = false;
-    private Boolean enabled = false;
-
-    public User(String email, String password, String first_name, String last_name, Integer code) {
-        this.email = email;
-        this.password = password;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.code = code;
-    }
+    private int code;
+    private Boolean verified;
 
     public User() {
+    }
+    public User(String first_name, String last_name, String email, String password, int code, Boolean verified) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+        this.code = code;
+        this.verified = verified;
     }
 }
