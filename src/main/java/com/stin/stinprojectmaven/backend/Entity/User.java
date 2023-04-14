@@ -1,29 +1,34 @@
 package com.stin.stinprojectmaven.backend.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-
-@Getter
-@Setter
-@ToString
-
+@Data
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "first_name")
     private String first_name;
-    @Column(name = "last_name")
     private String last_name;
-    @Column(name = "email")
     private String email;
-    @Column(name = "password")
     private String password;
+    private Integer code;
+    private Boolean verified;
 
+    public User() {
+    }
+    public User(String first_name, String last_name, String email, String password, int code, Boolean verified) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+        this.code = code;
+        this.verified = verified;
+    }
+
+    public String getFullName() {
+        return first_name + " " + last_name;
+    }
 }

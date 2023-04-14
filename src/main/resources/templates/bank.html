@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,9 @@
     <main id="main-holder">
         <h1 id="bank-header">Bank</h1>
         <div id="bank-user-info-holder">
-            <p id="bank-user-info">Welcome, <span id="bank-user-info-name">John Doe</span></p>
+            <p id="bank-user-info">Welcome, <span id="bank-user-info-name"></span></p>
         </div>
-        <p id="bank-form-logout-link"><a href="/static">Logout</a></p>
+        <p id="bank-form-logout-link"><a href="/">Logout</a></p>
         <div id="bank-user-balance-holder">
             <p id="bank-user-crown-balance">Your crown balance is: <span id="bank-user-crown-balance-amount">0.00Kč</span></p>
             <p id="bank-user-dollar-balance">Your dollar balance is: <span id="bank-user-dollar-balance-amount">$0.00</span></p>
