@@ -14,15 +14,15 @@ import java.util.Optional;
 @Repository
 @Transactional
 public interface UserRepo extends JpaRepository<User, Integer> {
-    @Modifying
-    @Query(value = "update User set code = ?1 where email = ?2", nativeQuery = true)
-    void insertCodeToUser(int code, String email);
-
-    @Query(value = "select code from User where email = ?", nativeQuery = true)
-    Integer getCodeByEmail(String email);
-
    @Query(value = "select * from users where email = ?", nativeQuery = true)
     User findByEmail(String email);
+
+    @Modifying
+    @Query(value = "update users set code = ?1 where email = ?2", nativeQuery = true)
+    void updateUserCode(int code, String email);
+
+    @Query(value = "select code from users where email = ?", nativeQuery = true)
+    Integer getCodeByEmail(String email);
 
     List<User> findAll();
 }

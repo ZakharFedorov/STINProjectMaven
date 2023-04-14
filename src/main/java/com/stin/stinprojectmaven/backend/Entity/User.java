@@ -14,7 +14,7 @@ public class User {
     private String last_name;
     private String email;
     private String password;
-    private int code;
+    private Integer code;
     private Boolean verified;
 
     public User() {
@@ -26,5 +26,9 @@ public class User {
         this.password = password;
         this.code = code;
         this.verified = verified;
+    }
+
+    public String getFullName() {
+        return first_name + " " + last_name;
     }
 }
