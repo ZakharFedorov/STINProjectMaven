@@ -38,7 +38,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests().requestMatchers("/","/login", "/verify").permitAll()
+        http.authorizeHttpRequests().requestMatchers("/","/login", "/verify", "/logout", "/transactions" , "/css/login.css", "/css/verification.css", "/css/bank.css").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")

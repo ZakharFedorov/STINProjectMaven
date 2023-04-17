@@ -1,0 +1,147 @@
+
+@media (min-width: 768px) {
+    section {
+        width: 100%;
+        height: 100%;
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 558px;
+    border: none;
+    border-radius: 3px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-logout{
+    display: flex;
+    align-items: center;
+}
+#firsthr{
+    margin-bottom: 100px;
+}
+
+.user-first-tables {
+    display: flex;
+}
+.user-second-tables {
+    display: flex;
+}
+
+.void-place{
+    background-color: black;
+    color: black;
+    border: 1px;
+    border-radius: 3px;
+}
+
+table {
+    width: 45%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 280px;
+    margin-left: 2%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+form {
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin-left: 15%;
+}
+
+form label {
+    margin-right: 10px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+#transactions-label{
+    margin-bottom: 10px;
+}
+
+#change-label{
+    margin-top: 10px;
+}
+
+form input[type="text"], form input[type="number"], form select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+form button {
+    display: block;
+    padding: 5px 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50%;
+}
+
+
+
+form button:hover {
+    background-color: #000000;
+}
