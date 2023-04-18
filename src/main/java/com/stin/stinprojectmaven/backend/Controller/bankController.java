@@ -1,8 +1,10 @@
 package com.stin.stinprojectmaven.backend.Controller;
 
 import com.stin.stinprojectmaven.backend.Entity.Account;
+import com.stin.stinprojectmaven.backend.Entity.Transaction;
 import com.stin.stinprojectmaven.backend.Entity.User;
 import com.stin.stinprojectmaven.backend.Repository.AccountRepo;
+import com.stin.stinprojectmaven.backend.Repository.TransactionRepo;
 import com.stin.stinprojectmaven.backend.Repository.UserRepo;
 import com.stin.stinprojectmaven.backend.Service.CurrencyData;
 import com.stin.stinprojectmaven.backend.Service.MoneyService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class bankController {
@@ -23,6 +26,8 @@ public class bankController {
     private UserRepo userRepo;
     @Autowired
     private AccountRepo AccountRepo;
+    @Autowired
+    private TransactionRepo TransactionRepo;
     @Autowired
     private CurrencyData currencyData;
     @Autowired
@@ -53,6 +58,8 @@ public class bankController {
         Account account = AccountRepo.findByUserId(user.getId());
         model.addAttribute("account", account);
         model.addAttribute("currencyData", currencyData);
+        List<Transaction> transactionList = TransactionRepo.findAllTransactions(account.getAccount_num());
+        model.addAttribute("transactionList", transactionList);
     }
 
     @PostMapping(value = "/transactions", params = "action=add")
@@ -73,6 +80,8 @@ public class bankController {
 
         assert account != null;
         AccountRepo.save(account);
+        Transaction transaction = new Transaction(account.getAccount_num(), Double.parseDouble(amount), currencyFrom, "Deposit");
+        TransactionRepo.save(transaction);
 
         return "redirect:/";
     }
@@ -95,6 +104,8 @@ public class bankController {
 
         assert account != null;
         AccountRepo.save(account);
+        Transaction transaction = new Transaction(account.getAccount_num(), Double.parseDouble(amount), currencyFrom, "Payment");
+        TransactionRepo.save(transaction);
 
         return "redirect:/";
     }

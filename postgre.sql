@@ -37,13 +37,17 @@ VALUES (1737865, 12000.00, 421.24, null, 1),
        (5236547, null, 753.53, 14.95, 2);
 
 CREATE TABLE Transactions (
- id INTEGER NOT NULL UNIQUE,
+ id serial NOT NULL UNIQUE,
  account_num INTEGER NOT NULL,
  amount DECIMAL(11,2) NOT NULL,
  currency VARCHAR(3) NOT NULL,
- date DATE NOT NULL,
- time TIME NOT NULL,
+ date VARCHAR(30) NOT NULL,
+ description VARCHAR(10) NOT NULL,
 PRIMARY KEY (id),
 FOREIGN KEY (account_num) REFERENCES Accounts(account_num));
 
-DROP TABLE Transactions;
+DROP TABLE Transactions CASCADE;
+
+INSERT into Transactions (account_num, amount, currency, date, description)
+VALUES (1737865, 345, 'EUR', '17.09.2022 18:08:53', 'Payment'),
+       (1737865, 22, 'USD', '17.09.2022 12:15:01', 'Deposit');

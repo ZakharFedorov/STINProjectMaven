@@ -32,15 +32,15 @@
             </tr>
             <tr>
                 <td>CZK</td>
-                <td>[[${account.getCrown_balance()}]]</td>
+                <td th:text="${account.getCrown_balance()}"></td>
             </tr>
             <tr>
                 <td>USD</td>
-                <td>[[${account.getDollar_balance()}]]</td>
+                <td th:text="${account.getDollar_balance()}"></td>
             </tr>
             <tr>
                 <td>EUR</td>
-                <td>[[${account.getEuro_balance()}]]</td>
+                <td th:text="${account.getEuro_balance()}"></td>
             </tr>
         </table>
         <table>
@@ -60,28 +60,28 @@
         </table>
     </div>
     <div class="void-place">
-        <p>s</p>
+        <p>.</p>
     </div>
     <div class="user-second-tables">
-        <table>
+        <table class="scroll-row">
             <caption>Transaction History</caption>
+            <thead>
             <tr>
                 <th>Date</th>
                 <th>Amount</th>
                 <th>Currency</th>
                 <th>Description</th>
             </tr>
-            <div class="row" style="height: 100px; overflow-y: scroll;">
-                <tr>
-                    <td >4</td>
-                    <td >3</td>
-                    <td >2</td>
-                    <td >1</td>
-                    <br>
-                </tr>
-            </div>
+            </thead>
+            <tbody class="scroll-container">
+            <tr th:each="item: ${transactionList}">
+                <td th:text="${item.getDate()}" style="margin-left: 10px;"></td>
+                <td th:text="${item.getAmount()}"></td>
+                <td th:text="${item.getCurrency()}"></td>
+                <td th:text="${item.getDescription()}"></td>
+            </tr>
+            </tbody>
         </table>
-
 
         <form class="money-form" method="post" th:action="@{/transactions}">
             <label id="transactions-label">Transactions</label>
@@ -91,7 +91,7 @@
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
             </select>
-            <label id="change-label">Change with:</label>
+            <label id="change-label">Change To:</label>
             <select name="currencyTo">
                 <option value="CZK">CZK</option>
                 <option value="USD">USD</option>

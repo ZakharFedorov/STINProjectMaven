@@ -1,33 +1,34 @@
 package com.stin.stinprojectmaven.backend.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-
-@Getter
-@Setter
-@ToString
 
 @Data
 @Entity
 @Table(name = "transactions")
 public class Transaction {
     @Id
-    private int id;
-
-    private int amount;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Integer account_num;
+    private Double amount;
     private String currency;
+    private String date;
+    private String description;
 
-    private int account_num;
+    public Transaction (Integer account_num, Double amount, String currency, String description) {
+        this.account_num = account_num;
+        this.amount = amount;
+        this.currency = currency;
+        this.description = description;
 
-    public void setId(int id) {
-        this.id = id;
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+        this.date = myDateObj.format(myFormatObj);
     }
 
-    public int getId() {
-        return id;
+    public Transaction() {
     }
 }
