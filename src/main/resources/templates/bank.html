@@ -4,41 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank User Page</title>
+    <link th:href="@{css/bank.css}" href="/static/css/bank.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <title>My Bank Account</title>
 </head>
 <body>
-    <main id="main-holder">
-        <h1 id="bank-header">Bank</h1>
-        <div id="bank-user-info-holder">
-            <p id="bank-user-info">Welcome, <span id="bank-user-info-name"></span></p>
+<section>
+    <header>
+        <h1>My Bank Account</h1>
+        <div class="user-profile">
+            <p>User Name: [[${user.getFullName()}]]</p>
         </div>
-        <p id="bank-form-logout-link"><a href="/">Logout</a></p>
-        <div id="bank-user-balance-holder">
-            <p id="bank-user-crown-balance">Your crown balance is: <span id="bank-user-crown-balance-amount">0.00Kč</span></p>
-            <p id="bank-user-dollar-balance">Your dollar balance is: <span id="bank-user-dollar-balance-amount">$0.00</span></p>
-            <p id="bank-user-euro-balance">Your euro balance is: <span id="bank-user-euro-balance-amount">€0.00</span></p>
+        <div class="user-account">
+            <p>Account Number: [[${account.getAccount_num()}]]</p>
         </div>
-        <div id="bank-current-exchange-rate-holder">
-            <p id="bank-current-exchange-rate">Current exchange rate:</p>
-            <p id="bank-current-exchange-rate-dollar-crown">$1 = 22.76Kč</p>
-            <p id="bank-current-exchange-rate-euro-crown">€1 = 23.95Kč</p>
+        <div class="user-logout">
+            <p><a th:href="@{/logout}" href="/logout">Logout</a></p>
         </div>
-        <form id="bank-form">
-            <input type="number" name="amount" id="amount-field" class="bank-form-field" placeholder="Amount">
-            <select name="currency" id="currency-field" class="bank-form-field">
-                <option value="crown">Crown</option>
-                <option value="dollar">Dollar</option>
-                <option value="euro">Euro</option>
+    </header>
+    <hr id="firsthr">
+    <div class="user-first-tables">
+        <table>
+            <caption>Account Balance</caption>
+            <tr>
+                <th>Currency</th>
+                <th>Balance</th>
+            </tr>
+            <tr>
+                <td>CZK</td>
+                <td th:text="${account.getCrown_balance()}"></td>
+            </tr>
+            <tr>
+                <td>USD</td>
+                <td th:text="${account.getDollar_balance()}"></td>
+            </tr>
+            <tr>
+                <td>EUR</td>
+                <td th:text="${account.getEuro_balance()}"></td>
+            </tr>
+        </table>
+        <table>
+            <caption>Current exchange rate</caption>
+            <tr>
+                <th>Currency</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>USD</td>
+                <td>[[${currencyData.getDollar()}]]</td>
+            </tr>
+            <tr>
+                <td>EUR</td>
+                <td>[[${currencyData.getEuro()}]]</td>
+            </tr>
+        </table>
+    </div>
+    <div class="void-place">
+        <p>.</p>
+    </div>
+    <div class="user-second-tables">
+        <table class="scroll-row">
+            <caption>Transaction History</caption>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody class="scroll-container">
+            <tr th:each="item: ${transactionList}">
+                <td th:text="${item.getDate()}" style="margin-left: 10px;"></td>
+                <td th:text="${item.getAmount()}"></td>
+                <td th:text="${item.getCurrency()}"></td>
+                <td th:text="${item.getDescription()}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form class="money-form" method="post" th:action="@{/transactions}">
+            <label id="transactions-label">Transactions</label>
+            <input type="number" name="amount" placeholder="Amount">
+            <select name="currencyFrom">
+                <option value="CZK">CZK</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
             </select>
-            <select name="action" id="action-field" class="bank-form-field">
-                <option value="deposit">Deposit</option>
-                <option value="withdraw">Withdraw</option>
+            <label id="change-label">Change To:</label>
+            <select name="currencyTo">
+                <option value="CZK">CZK</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
             </select>
-            <input type="submit" value="Submit" id="bank-form-submit">
+            <button type="submit" id="add-button" name="action" value="add">Add</button>
+            <button type="submit" id="pay-button" name="action" value="pay">Pay</button>
         </form>
-        <div id="bank-form-error-msg-holder">
-            <p id="bank-form-error-msg">Invalid amount</p>
-        </div>
-    </main>
+    </div>
+</section>
 </body>
 </html>

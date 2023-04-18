@@ -1,0 +1,324 @@
+@media (max-width: 667px) {
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .user-first-tables, .user-second-tables {
+        display: block;
+
+    }
+
+    header {
+        padding: 10px;
+        background-color: #000000;
+        color: white;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        border-radius: 3px;
+
+    }
+
+    table {
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+        float: left; /* или right */
+        clear: both;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+    }
+
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-logout{
+        display: flex;
+        align-items: center;
+    }
+    #firsthr{
+        margin-bottom: 30px;
+    }
+    .user-first-tables {
+        display: block;
+    }
+    .user-second-tables {
+        display: block;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        min-width: 300px;
+        margin-left: 2%;
+        display: inline-block;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    form {
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        margin-left: 15%;
+    }
+
+    form label {
+        margin-right: 10px;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #transactions-label{
+        margin-bottom: 10px;
+    }
+
+    #change-label{
+        margin-top: 10px;
+    }
+
+    form input[type="text"], form input[type="number"], form select {
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+
+    form button {
+        display: block;
+        padding: 5px 10px;
+        background-color: #000000;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 50%;
+    }
+
+    form button:hover {
+        background-color: #000000;
+    }
+
+    .scroll-container {
+        height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: block;
+        width: 93%;
+    }
+
+    .scroll-container tr{
+        justify-content: space-between;
+        display: flex;
+    }
+
+    table {
+        table-layout: fixed;
+    }
+
+}
+/* =======================    */
+/* =======================    */
+
+@media (min-width: 668px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    header {
+        background-color: #000000;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 800px;
+        border: none;
+        border-radius: 3px;
+
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+    }
+
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-logout{
+        display: flex;
+        align-items: center;
+    }
+    #firsthr{
+        margin-bottom: 100px;
+    }
+
+    .user-first-tables {
+        display: flex;
+    }
+    .user-second-tables {
+        display: flex;
+    }
+
+    .void-place{
+        background-color: black;
+        color: black;
+        border: 1px;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 45%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        min-width: 400px;
+        margin-left: 2%;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+
+    form {
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        margin-left: 15%;
+    }
+
+    form label {
+        margin-right: 10px;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+    #transactions-label{
+        margin-bottom: 10px;
+    }
+
+    #change-label{
+        margin-top: 10px;
+    }
+
+    form input[type="text"], form input[type="number"], form select {
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+
+    form button {
+        display: block;
+        padding: 5px 10px;
+        background-color: #000000;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 50%;
+    }
+
+    form button:hover {
+        background-color: #000000;
+    }
+
+    .scroll-container {
+        height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: block;
+        min-width: 280px;
+        width: 400%;
+    }
+
+    .scroll-container tr{
+        justify-content: space-between;
+        display: flex;
+    }
+
+    table {
+        table-layout: fixed;
+    }
+}

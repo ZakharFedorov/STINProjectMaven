@@ -1,105 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <style>
-        html{
-            height: 100%;
-        }
-
-        body {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            display: grid;
-            justify-items: center;
-            align-items: center;
-            background-color: #000000;
-        }
-
-
-        #main-holder {
-            width: 100%;
-            height: 70%;
-            display: grid;
-            justify-items: center;
-            align-items: center;
-            background-color: white;
-            border-radius: 7px;
-        }
-
-        #verify-error-msg-holder {
-            width: 100%;
-            height: 100%;
-            display: grid;
-            justify-items: center;
-            align-items: center;
-        }
-
-
-        #verify-error-msg {
-            text-align: center;
-            margin: 0;
-            padding: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #8a0000;
-            border: 1px solid #8a0000;
-            background-color: #e58f8f;
-            opacity: 0;
-        }
-
-
-        #verify-form {
-            align-self: flex-start;
-            display: grid;
-            justify-items: center;
-            align-items: center;
-        }
-
-
-        .verify-form-field::placeholder {
-            color: #000000;
-        }
-
-
-        .verify-form-field {
-            border: none;
-            border-bottom: 1px solid #000000;
-            margin-bottom: 50px;
-            border-radius: 3px;
-            outline: none;
-            padding: 0 0 5px 5px;
-            margin-left: 20px;
-            display: block;
-            vertical-align: middle;
-        }
-
-        .verify-form-label {
-            display: block;
-            vertical-align: middle;
-            margin-bottom: 50px;
-            margin-left: 20px;
-
-        }
-
-
-        #verify-form-submit {
-            width: 100%;
-            padding: 7px;
-            border: none;
-            margin-top:30px;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-            background-color: #000000;
-            cursor: pointer;
-            outline: none;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{css/verification.css}" href="/css/verification.css"
+    <link th:href="@{css/verification.css}" href="/static/css/verification.css"
           rel="stylesheet" type="text/css" media="screen"/>
     <title>Verification Page</title>
 </head>

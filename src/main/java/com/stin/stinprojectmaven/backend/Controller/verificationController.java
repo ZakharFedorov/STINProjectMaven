@@ -32,7 +32,7 @@ public class verificationController {
         }
         EmailDetails toEmail = new EmailDetails(user.getEmail(), "Your Verification Code", "Hello, " + user.getFullName() + "\n\n Your verification code is: ");
         emailService.generateEmail(user, toEmail);
-        return "redirect:/verification";
+        return "verification";
     }
 
     @PostMapping("/verify")

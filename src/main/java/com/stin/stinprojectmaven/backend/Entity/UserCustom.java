@@ -1,18 +1,12 @@
 package com.stin.stinprojectmaven.backend.Entity;
 
-import jakarta.persistence.*;
-import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 
 public class UserCustom implements UserDetails {
-    private User user;
+    private final User user;
 
     public UserCustom(User user) {
         this.user = user;
@@ -45,9 +39,5 @@ public class UserCustom implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public Boolean getVerified() {
-        return user.getVerified();
     }
 }

@@ -3,24 +3,17 @@ package com.stin.stinprojectmaven.backend.Service;
 import com.stin.stinprojectmaven.backend.Entity.EmailDetails;
 import com.stin.stinprojectmaven.backend.Entity.User;
 import com.stin.stinprojectmaven.backend.Repository.UserRepo;
-import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.io.UnsupportedEncodingException;
 import java.util.Random;
 @Service
 public class EmailServiceImp implements EmailService{
 
     @Autowired
     private UserRepo userRepo;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -33,7 +26,7 @@ public class EmailServiceImp implements EmailService{
         emailDetails.addCodeToMessage(randomCode);
         System.out.println(randomCode);
         user.setCode(randomCode);
-        userRepo.save(user);
+        userRepo.updateUserCode(randomCode, user.getEmail());
 
         sendVerificationToEmail(emailDetails);
     }

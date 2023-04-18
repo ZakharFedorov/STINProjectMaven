@@ -1,22 +1,22 @@
 package com.stin.stinprojectmaven.backend.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 
-@Getter
-@Setter
-@ToString
 
+@Data
 @Entity
 @Table(name = "accounts")
 public class Account {
     @Id
-    private int account_num;
-    private float crown;
-    private float dollar;
-    private float euro;
-    private int id_user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer account_num;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_user;
+
+    private Double crown_balance;
+    private Double dollar_balance;
+    private Double euro_balance;
+
 }
