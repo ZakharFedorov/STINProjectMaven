@@ -26,10 +26,6 @@ public class verificationController {
     public String processRegister(Principal principal){
         String euser = principal.getName();
         user = userRepo.findByEmail(euser);
-        if(user.getVerified()){
-            userRepo.save(user);
-            return "redirect:/";
-        }
         EmailDetails toEmail = new EmailDetails(user.getEmail(), "Your Verification Code", "Hello, " + user.getFullName() + "\n\n Your verification code is: ");
         emailService.generateEmail(user, toEmail);
         return "verification";
