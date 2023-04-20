@@ -16,7 +16,7 @@ INSERT into Users (id, email, password, first_name, last_name, code, verified)
 VALUES (1, 'zakhar.fedorov@tul.cz',
         '$2a$10$FmyQQHc9dq5DhAOnrwlGqOdhQJ6N75fsk7WQtadObHOc5REHB4.fq',
         'Zakhar', 'Fedorov', null, false),
-       (2, 'zakhar.fedo@mail.ru',
+       (2, 'zahar.fedo@mail.ru',
         '$2a$10$AzRy1hW8qHo2kxZuAYntGeVHzKbfWjIjWHFQJo7jTgMdKpVG.3HS6',
         'Zakhar', 'Fedorov', null, false);
 
