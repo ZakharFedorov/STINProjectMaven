@@ -1,5 +1,6 @@
 package com.stin.stinprojectmaven.backend.Service;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -56,11 +57,11 @@ public class CurrencyData {
         }
         return value;
     }
-
+    @Scheduled(cron = "0 0 15 * * *")
     public String getEuro() {
         return (getCurrencyValue("EUR", getCurrencyData(getActualURL(getCurrentlyDate()))));
     }
-
+    @Scheduled(cron = "0 0 15 * * *")
     public String getDollar() {
         return (getCurrencyValue("USD", getCurrencyData(getActualURL(getCurrentlyDate()))));
     }
