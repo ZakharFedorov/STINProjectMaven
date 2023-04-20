@@ -9,4 +9,5 @@ public class StinProjectMavenApplication {
     public static void main(String[] args) {
         SpringApplication.run(StinProjectMavenApplication.class, args);
     }
+
 }
