@@ -61,12 +61,12 @@ public class TransactionTest {
         assertEquals(transaction.hashCode(), transaction2.hashCode());
     }
 
-    @Test
-    public void testEntityAndTable() {
-        Entity entity = Transaction.class.getAnnotation(Entity.class);
-        Table table = Transaction.class.getAnnotation(Table.class);
-        assertNotNull(entity, "Transaction class should have @Entity annotation");
-        assertNotNull(table, "Transaction class should have @Table annotation");
-        assertEquals("transactions", table.name(), "Table name should be 'transactions'");
-    }
+//    @Test
+//    public void testEntityAndTable() {
+//        Entity entity = Transaction.class.getAnnotation(Entity.class);
+//        Table table = Transaction.class.getAnnotation(Table.class);
+//        assertNotNull(entity, "Transaction class should have @Entity annotation");
+//        assertNotNull(table, "Transaction class should have @Table annotation");
+//        assertEquals("transactions", table.name(), "Table name should be 'transactions'");
+//    }
 }

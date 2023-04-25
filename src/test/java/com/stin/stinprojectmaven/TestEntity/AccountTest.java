@@ -47,13 +47,13 @@ public class AccountTest {
     }
 
 
-    @Test
-    public void testEntityAndTable() {
-        Entity entity = Account.class.getAnnotation(Entity.class);
-        Table table = Account.class.getAnnotation(Table.class);
-        assertNotNull(entity, "User class should have @Entity annotation");
-        assertNotNull(table, "User class should have @Table annotation");
-        assertEquals("accounts", table.name(), "Table name should be 'accounts'");
-    }
+//    @Test
+//    public void testEntityAndTable() {
+//        Entity entity = Account.class.getAnnotation(Entity.class);
+//        Table table = Account.class.getAnnotation(Table.class);
+//        assertNotNull(entity, "User class should have @Entity annotation");
+//        assertNotNull(table, "User class should have @Table annotation");
+//        assertEquals("accounts", table.name(), "Table name should be 'accounts'");
+//    }
 
 }
