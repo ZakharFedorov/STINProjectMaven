@@ -16,9 +16,9 @@ public class MoneyServiceImp implements MoneyService {
         switch (currencyFrom) {
             case "USD" -> {
                 switch (currencyTo) {
-                    case "USD" -> account.setDollar_balance(account.getDollar_balance() + amount);
-                    case "EUR" -> account.setEuro_balance(account.getEuro_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
-                    case "CZK" -> account.setCrown_balance(account.getCrown_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
+                    case "USD" -> account.setDollar_balance(Math.round((account.getDollar_balance() + amount)*100.0)/100.0);
+                    case "EUR" -> account.setEuro_balance(Math.round((account.getEuro_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
+                    case "CZK" -> account.setCrown_balance(Math.round((account.getCrown_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
                     default -> {
                         return null;
                     }
@@ -27,8 +27,8 @@ public class MoneyServiceImp implements MoneyService {
             case "EUR" -> {
                 switch (currencyTo) {
                     case "EUR" -> account.setEuro_balance(account.getEuro_balance() + amount);
-                    case "USD" -> account.setDollar_balance(account.getDollar_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
-                    case "CZK" -> account.setCrown_balance(account.getCrown_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
+                    case "USD" -> account.setDollar_balance(Math.round((account.getDollar_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
+                    case "CZK" -> account.setCrown_balance(Math.round((account.getCrown_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
                     default -> {
                         return null;
                     }
@@ -37,8 +37,8 @@ public class MoneyServiceImp implements MoneyService {
             case "CZK" -> {
                 switch (currencyTo) {
                     case "CZK" -> account.setCrown_balance(account.getCrown_balance() + amount);
-                    case "USD" -> account.setDollar_balance(account.getDollar_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
-                    case "EUR" -> account.setEuro_balance(account.getEuro_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
+                    case "USD" -> account.setDollar_balance(Math.round((account.getDollar_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
+                    case "EUR" -> account.setEuro_balance(Math.round((account.getEuro_balance() + (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
                     default -> {
                         return null;
                     }
@@ -58,8 +58,8 @@ public class MoneyServiceImp implements MoneyService {
             case "USD" -> {
                 switch (currencyTo) {
                     case "USD" -> account.setDollar_balance(account.getDollar_balance() - amount);
-                    case "EUR" -> account.setEuro_balance(account.getEuro_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
-                    case "CZK" -> account.setCrown_balance(account.getCrown_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
+                    case "EUR" -> account.setEuro_balance(Math.round((account.getEuro_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
+                    case "CZK" -> account.setCrown_balance(Math.round((account.getCrown_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
                     default -> {
                         return null;
                     }
@@ -68,8 +68,8 @@ public class MoneyServiceImp implements MoneyService {
             case "EUR" -> {
                 switch (currencyTo) {
                     case "EUR" -> account.setEuro_balance(account.getEuro_balance() - amount);
-                    case "USD" -> account.setDollar_balance(account.getDollar_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
-                    case "CZK" -> account.setCrown_balance(account.getCrown_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
+                    case "USD" -> account.setDollar_balance(Math.round((account.getDollar_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
+                    case "CZK" -> account.setCrown_balance(Math.round((account.getCrown_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
                     default -> {
                         return null;
                     }
@@ -78,8 +78,8 @@ public class MoneyServiceImp implements MoneyService {
             case "CZK" -> {
                 switch (currencyTo) {
                     case "CZK" -> account.setCrown_balance(account.getCrown_balance() - amount);
-                    case "USD" -> account.setDollar_balance(account.getDollar_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
-                    case "EUR" -> account.setEuro_balance(account.getEuro_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount));
+                    case "USD" -> account.setDollar_balance(Math.round((account.getDollar_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
+                    case "EUR" -> account.setEuro_balance(Math.round((account.getEuro_balance() - (currencyData.getExchangeRate(currencyFrom, currencyTo) * amount))*1000.0)/1000.0);
                     default -> {
                         return null;
                     }
